@@ -3,14 +3,42 @@
 <head>
     <!-- vi: sw=4 noet
     -->
+    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
     <style>
-	/* .autoplay { display: none; } */
-	body { background-image: url(./comicsansleon.jpg); color: red; }
+	/* #autoplay { display: none; } */
+	audio, embed, .audio1 {
+	    position: absolute;
+	    z-index: -9999;
+	    display: none;
+	}
+	body {
+	    background-image: url(./comicsansleon.jpg);
+	    color: red;
+	    font: "Comic Sans";
+	}
+	
     </style>
+    <script>
+	let audioPlaying = true, backgroundAudio, browser;
+	browser = navigator.userAgent.toLowerCase();
+	$('<audio class="audio1" src="subway-surfer-bass-boosted.mp3" loop></audio>').prependTo('body');
+	if (!browser.indexOf('firefox') > -1) {
+	    backgroundAudio = setInterval(function() {
+	        $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
+	    }, 1000);
+	    //$('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3" autostart="1"></embed>').prependTo('body');
+	    //$('<iframe src="subway-surfer-bass-boosted.mp3" allow="autoplay" style="display:none" id="iframeAutoplay"></iframe>').prependTo('body');
+
+	    backgroundAudio = setInterval(function() {
+	        $("#background-audio").remove();
+	        $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
+	    }, 18000);
+	}
+    </script>
 </head>
 
 <body>
-    <div>hi</div>
-    <audio class="autoplay" autoplay="true" src="./subway-surfer-bass-boosted.mp3"></audio>
+    <!-- <iframe src="subway-surfer-bass-boosted.mp3" allow="autoplay" style="display:none" id="iframeAutoplay"></iframe> -->
+<!--<audio id="autoplay" autoplay loop src="./subway-surfer-bass-boosted.mp3"></audio> -->
 </body>
 </html>
