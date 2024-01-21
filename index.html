@@ -23,15 +23,15 @@
 	browser = navigator.userAgent.toLowerCase();
 	$('<audio class="audio1" src="subway-surfer-bass-boosted.mp3" loop></audio>').prependTo('body');
 	if (!browser.indexOf('firefox') > -1) {
-	    backgroundAudio = setInterval(function() {
-	        $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
+	    setInterval(function() {
+	        backgroundAudio = $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
 	    }, 1000);
 	    //$('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3" autostart="1"></embed>').prependTo('body');
 	    //$('<iframe src="subway-surfer-bass-boosted.mp3" allow="autoplay" style="display:none" id="iframeAutoplay"></iframe>').prependTo('body');
 
-	    backgroundAudio = setInterval(function() {
+	    setInterval(function() {
 	        $("#background-audio").remove();
-	        $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
+	        backgroundAudio = $('<embed id="background-audio" src="subway-surfer-bass-boosted.mp3"></embed>').prependTo('body');
 	    }, 18000);
 	}
     </script>
