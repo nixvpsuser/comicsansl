@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- vi: sw=4 noet
+    -->
+    <style>
+	/* #autoplay { display: none; } */
+	audio, embed, .audio1 {
+	    position: absolute;
+	    z-index: -9999;
+	}
+	body {
+	    background-image: url(./comicsansleon.jpg);
+	    color: red;
+	}
+	
+    </style>
+    <script src="./pixi.min.js"></script>
+    <script src="./pixi-sound.js"></script>
+
+    <script>
+	if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+	    window.location.replace("../comicsansleon.mp4");
+	} else {
+	}
+        PIXI.sound.add('comicsansleon', '../subway-surfer-bass-boosted.mp3');
+        PIXI.sound.play('comicsansleon');
+    </script>
+</head>
+
+<body>
+</body>
+</html>
